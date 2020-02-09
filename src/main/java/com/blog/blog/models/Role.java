@@ -1,6 +1,5 @@
 package com.blog.blog.models;
 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,23 +7,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.List;
+
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Category {
+public class Role {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    private String label;
+    private String name;
 
+/*   @ManyToMany(mappedBy = "roles")
     @JsonIgnore
-    @ManyToMany(mappedBy = "categories")
-    private List<Article> articles;
-
+    private List<User> users;
+*/
 }
